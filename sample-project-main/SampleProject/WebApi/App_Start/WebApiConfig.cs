@@ -42,6 +42,9 @@ namespace WebApi
             settings.DefaultValueHandling = DefaultValueHandling.Include;
             settings.Converters.Add(new StringEnumConverter());
 
+            // Register global exception filter
+            config.Filters.Add(new GlobalExceptionFilter());
+
             config.MapHttpAttributeRoutes();
 
             config.Routes.MapHttpRoute(
