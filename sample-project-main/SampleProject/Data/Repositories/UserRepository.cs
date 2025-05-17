@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using BusinessEntities;
 using Common;
 using Data.Indexes;
@@ -17,7 +18,7 @@ namespace Data.Repositories
             _documentSession = documentSession;
         }
 
-        public IEnumerable<User> Get(UserTypes? userType = null, string name = null, string email = null)
+        public Task<IEnumerable<User>> GetAsync(UserTypes? userType = null, string name = null, string email = null)
         {
             var query = _documentSession.Advanced.DocumentQuery<User, UsersListIndex>();
 
@@ -49,12 +50,14 @@ namespace Data.Repositories
                 }
                 query = query.WhereEquals("Email", email);
             }
-            return query.ToList();
+
+            // Fix: Wrap the result in Task.FromResult to return a Task
+            return Task.FromResult<IEnumerable<User>>(query.ToList());
         }
 
-        public void DeleteAll()
+        public Task DeleteAllAsync()
         {
-            base.DeleteAll<UsersListIndex>();
+            return base.DeleteAllAsync<UsersListIndex>();
         }
     }
 }

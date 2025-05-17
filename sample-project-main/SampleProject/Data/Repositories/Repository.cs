@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using BusinessEntities;
 using Common;
 using Raven.Abstractions.Data;
@@ -19,24 +20,29 @@ namespace Data.Repositories
             _documentSession = documentSession;
         }
 
-        public void Save(T entity)
+        public Task SaveAsync(T entity)
         {
             _documentSession.Store(entity);
+            // RavenDB's session operations are synchronous, but you can wrap in Task for async signature
+            return Task.CompletedTask;
         }
 
-        public void Delete(T entity)
+        public Task DeleteAsync(T entity)
         {
             _documentSession.Delete(entity);
+            return Task.CompletedTask;
         }
 
-        public T Get(Guid id)
+        public Task<T> GetAsync(Guid id)
         {
-            return _documentSession.Load<T>(id);
+            var result = _documentSession.Load<T>(id);
+            return Task.FromResult(result);
         }
 
-        protected void DeleteAll<TIndex>() where TIndex : AbstractIndexCreationTask<T>
+        protected Task DeleteAllAsync<TIndex>() where TIndex : AbstractIndexCreationTask<T>
         {
             _documentSession.Advanced.DocumentStore.DatabaseCommands.DeleteByIndex(typeof(TIndex).Name, new IndexQuery());
+            return Task.CompletedTask;
         }
     }
 }

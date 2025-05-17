@@ -2,6 +2,7 @@
 using System.Web.Http.Filters;
 using Common;
 using Core;
+using Core.Services.Users;
 using Data;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
