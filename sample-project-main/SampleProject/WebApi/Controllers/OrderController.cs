@@ -1,4 +1,5 @@
-﻿using Core.Services.Orders;
+﻿using BusinessEntities;
+using Core.Services.Orders;
 using System;
 using System.Linq;
 using System.Net.Http;
@@ -92,6 +93,10 @@ namespace WebApi.Controllers
         public async Task<HttpResponseMessage> GetOrder(Guid orderId)
         {
             var order = await _orderService.GetOrderAsync(orderId);
+            if (order == null)
+            {
+                return DoesNotExist();
+            }
             return Found(new OrderData(order));
         }
 

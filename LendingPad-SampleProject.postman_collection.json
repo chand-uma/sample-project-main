@@ -285,8 +285,17 @@
 							"request": {
 								"method": "POST",
 								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"name\": \"Keyboard\",\r\n  \"price\": 40.00,\r\n  \"stock\": 20\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
 								"url": {
-									"raw": "http://localhost:49834/products/1422740e-6426-4c46-8445-3f5274a62424/create",
+									"raw": "http://localhost:49834/products/1522740e-6426-4c46-8445-3f5274a62424/create",
 									"protocol": "http",
 									"host": [
 										"localhost"
@@ -294,7 +303,7 @@
 									"port": "49834",
 									"path": [
 										"products",
-										"1422740e-6426-4c46-8445-3f5274a62424",
+										"1522740e-6426-4c46-8445-3f5274a62424",
 										"create"
 									]
 								}
@@ -316,7 +325,7 @@
 									}
 								},
 								"url": {
-									"raw": "http://localhost:49834/products/1422740e-6426-4c46-8445-3f5274a62424/update",
+									"raw": "http://localhost:49834/products/1522740e-6426-4c46-8445-3f5274a62424/update",
 									"protocol": "http",
 									"host": [
 										"localhost"
@@ -324,7 +333,7 @@
 									"port": "49834",
 									"path": [
 										"products",
-										"1422740e-6426-4c46-8445-3f5274a62424",
+										"1522740e-6426-4c46-8445-3f5274a62424",
 										"update"
 									]
 								}
@@ -338,7 +347,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n  \"name\": \"Gaming Laptop\",\r\n  \"price\": 1200.00,\r\n  \"stock\": 10\r\n}",
+									"raw": "{\r\n  \"name\": \"Laptop\",\r\n  \"price\": 999.99,\r\n  \"stock\": 10\r\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -346,7 +355,7 @@
 									}
 								},
 								"url": {
-									"raw": "http://localhost:49834/products/1422740e-6426-4c46-8445-3f5274a62424/update",
+									"raw": "http://localhost:49834/products/1522740e-6426-4c46-8445-3f5274a62424/update",
 									"protocol": "http",
 									"host": [
 										"localhost"
@@ -354,7 +363,7 @@
 									"port": "49834",
 									"path": [
 										"products",
-										"1422740e-6426-4c46-8445-3f5274a62424",
+										"1522740e-6426-4c46-8445-3f5274a62424",
 										"update"
 									]
 								}
@@ -368,7 +377,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n  \"name\": \"Gaming Laptop\",\r\n  \"price\": 1200.00,\r\n  \"stock\": 10\r\n}",
+									"raw": "{\r\n  \"name\": \"Laptop\",\r\n  \"price\": 1200.00,\r\n  \"stock\": 5\r\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -376,7 +385,7 @@
 									}
 								},
 								"url": {
-									"raw": "http://localhost:49834/products/1422740e-6426-4c46-8445-3f5274a62424/update",
+									"raw": "http://localhost:49834/products/1522740e-6426-4c46-8445-3f5274a62424/update",
 									"protocol": "http",
 									"host": [
 										"localhost"
@@ -384,7 +393,7 @@
 									"port": "49834",
 									"path": [
 										"products",
-										"1422740e-6426-4c46-8445-3f5274a62424",
+										"1522740e-6426-4c46-8445-3f5274a62424",
 										"update"
 									]
 								}
@@ -397,7 +406,7 @@
 								"method": "DELETE",
 								"header": [],
 								"url": {
-									"raw": "http://localhost:49834/products/1422740e-6426-4c46-8445-3f5274a62424/delete",
+									"raw": "http://localhost:49834/products/1522740e-6426-4c46-8445-3f5274a62424/delete",
 									"protocol": "http",
 									"host": [
 										"localhost"
@@ -405,7 +414,7 @@
 									"port": "49834",
 									"path": [
 										"products",
-										"1422740e-6426-4c46-8445-3f5274a62424",
+										"1522740e-6426-4c46-8445-3f5274a62424",
 										"delete"
 									]
 								}
@@ -416,7 +425,19 @@
 							"name": "Get Product By Id",
 							"request": {
 								"method": "GET",
-								"header": []
+								"header": [],
+								"url": {
+									"raw": "http://localhost:49834/products/1522740e-6426-4c46-8445-3f5274a62424",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "49834",
+									"path": [
+										"products",
+										"1522740e-6426-4c46-8445-3f5274a62424"
+									]
+								}
 							},
 							"response": []
 						},
@@ -426,7 +447,7 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "http://localhost:49834/products/list?name=Laptop&minPrice=500&maxPrice=1500",
+									"raw": "http://localhost:49834/products/list?name=Keyboard&minPrice=10&maxPrice=50",
 									"protocol": "http",
 									"host": [
 										"localhost"
@@ -439,15 +460,15 @@
 									"query": [
 										{
 											"key": "name",
-											"value": "Laptop"
+											"value": "Keyboard"
 										},
 										{
 											"key": "minPrice",
-											"value": "500"
+											"value": "10"
 										},
 										{
 											"key": "maxPrice",
-											"value": "1500"
+											"value": "50"
 										}
 									]
 								}
@@ -464,8 +485,17 @@
 							"request": {
 								"method": "POST",
 								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"customerName\": \"Alice Smith\",\r\n  \"productId\": \"1522740e-6426-4c46-8445-3f5274a62424\",\r\n  \"quantity\": 3,\r\n  \"orderDate\": \"2024-06-10T14:30:00Z\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
 								"url": {
-									"raw": "http://localhost:49834/orders/1522740e-6426-4c46-8445-3f5274a62424/create",
+									"raw": "http://localhost:49834/orders/1922740e-6426-4c46-8445-3f5274a62424/create",
 									"protocol": "http",
 									"host": [
 										"localhost"
@@ -473,7 +503,7 @@
 									"port": "49834",
 									"path": [
 										"orders",
-										"1522740e-6426-4c46-8445-3f5274a62424",
+										"1922740e-6426-4c46-8445-3f5274a62424",
 										"create"
 									]
 								}
